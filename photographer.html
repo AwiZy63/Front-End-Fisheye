@@ -70,15 +70,27 @@
   <div id="contact_modal">
     <div class="modal">
       <header>
-        <h2>Contactez-moi</h2>
+        <h2 id="contact_title">Contactez-moi</h2>
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
-      <form>
+      <form id="contactForm" method="post">
         <div>
-          <label>Prénom</label>
-          <input />
+          <label for="lastName">Nom</label>
+          <input type="text" name="lastName" id="lastName" class="contact-input">
+          <p class="input_error" id="lastNameError">Veuillez renseigner votre nom.</p>
+          <label for="firstName">Prénom</label>
+          <input type="text" name="firstName" id="firstName" class="contact-input">
+          <p class="input_error" id="firstNameError">Veuillez renseigner votre prénom.</p>
+
+          <label for="email">Email</label>       
+          <input type="text" name="email" id="email" class="contact-input">
+          <p class="input_error" id="emailError">Veuillez renseigner un mail valide.</p>
+
+          <label for="message">Message</label>
+          <textarea name="message" id="message" class="contact-message"></textarea>
+          <p class="input_error" id="messageError">Veuillez renseigner votre message.</p>
         </div>
-        <button class="contact_button">Envoyer</button>
+        <button class="contact_submit">Envoyer</button>
       </form>
     </div>
   </div>

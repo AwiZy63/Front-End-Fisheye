@@ -1,29 +1,46 @@
 #contact_modal {
     display: none;
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    transform: translate(0, -50%);
 }
 
 .photograph-header {
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     height: 300px;
     margin: 0 100px;
 }
 
 .contact_button {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: white;
     padding: 11px;
     width: 170px;
     height: 70px;
     border: none;
-    background-color: #901C1C;
+    background-color: #901c1c;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact_submit {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 120px;
+    height: 40px;
+    border: none;
+    background-color: #901c1c;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .modal {
     border-radius: 5px;
-    background-color: #DB8876;
+    background-color: #db8876;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -43,7 +60,7 @@
 }
 
 .modal header h2 {
-    font-size: 64px;
+    font-size: 36px;
     font-weight: normal;
     text-align: center;
 }
@@ -56,8 +73,8 @@ form {
 }
 
 form label {
-    color: #312E2E;
-    font-size: 36px;
+    color: #312e2e;
+    font-size: 28px;
 }
 
 form div {
@@ -65,12 +82,25 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
+    margin-bottom: 24px;
 }
 
 form input {
     width: 100%;
-    height: 68px;
+    padding: 16px 0 16px 8px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 4px;
+}
+
+form textarea {
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+    padding: 16px 0 16px 8px;
+    font-size: 18px;
+    font-family: "DM Sans", sans-serif;
     border: none;
     border-radius: 5px;
 }

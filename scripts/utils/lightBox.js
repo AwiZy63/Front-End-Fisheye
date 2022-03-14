@@ -1,5 +1,6 @@
 const lightBoxCloseButton = document.getElementById("closeLightbox");
 const lightBox = document.getElementById("lightbox");
+let handleKeyboard;
 
 async function displayLightbox(medias, selectedMedia) {
     lightBox.style.display = 'flex';
@@ -78,10 +79,21 @@ async function displayLightbox(medias, selectedMedia) {
             mediaContainer.innerHTML = `<video class="lightbox-content-media" src="${newMediaSource}" alt="${media.title}" controls="" autoplay="" muted="" loop="" type="video/mp4"></video>`;
         }
     }
+
+    handleKeyboard = (event) => {
+        const key = event.key;
+        if (key === "ArrowRight") {
+            nextMedia();
+        } else if (key === "ArrowLeft") {
+            previousMedia();
+        }
+    }
+    document.addEventListener('keydown', handleKeyboard);
 }
 
 lightBoxCloseButton.addEventListener("click", hideLightbox);
 
 function hideLightbox() {
+    document.removeEventListener('keydown', handleKeyboard);
     lightBox.style.display = 'none';
 }

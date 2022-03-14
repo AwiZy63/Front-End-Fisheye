@@ -5,7 +5,6 @@ body {
     margin: 0;
 }
 
-
 header {
     display: flex;
     flex-direction: row;
@@ -15,7 +14,7 @@ header {
 }
 
 h1 {
-    color: #901C1C;
+    color: #901c1c;
     margin-right: 100px;
 }
 
@@ -37,14 +36,248 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
+    color: #d3573c;
+    font-size: 32px;
+    margin-top: 16px;
+    margin-bottom: 0;
 }
 
-.photographer_section article img {
+.photographer_section article a {
+    text-decoration: none;
+}
+
+.photographer_section article a img {
     height: 200px;
     width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.photographer_location {
+    color: #901c1c;
+    margin: 0;
+    font-size: 18px;
+}
+
+.photographer_description {
+    margin: 4px 0;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.photographer_price {
+    color: #757575;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Photograph page */
+
+.photograph-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.photograph_informations {
+    display: flex;
+    flex-direction: column;
+}
+
+.photograph_name {
+    margin: 0;
+    color: #d3573c;
+    font-size: 64px;
+    font-weight: 500;
+}
+
+.photograph_location {
+    margin: 16px 0;
+    color: #901c1c;
+    font-size: 24px;
+}
+
+.photograph_slogan {
+    margin: 0;
+    color: #757575;
+    font-size: 18px;
+}
+
+.photograph_profile_picture {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Photograph works section */
+.photograph_works {
+    margin: 24px 100px;
+}
+
+.filter {
+    display: flex;
+}
+
+.filter-text {
+    margin: 8px 0;
+    margin-right: 18px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.filter-selector > select {
+    appearance: none;
+    background-color: #901c1c;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 1em 8px 8px;
+    margin: 0;
+    width: 100%;
+    color: white;
+    font-size: 18px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+}
+
+.filter-selector > select::-ms-expand {
+    display: none;
+}
+
+/* Photograph medias */
+.photograph_medias {
+    margin: 32px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:  32px 10%;
+}
+
+.photograph_media {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+}
+
+.photograph_media_picture {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.photograph_media_button {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.photograph_media_informations {
+    display: flex;
+    justify-content: space-between;
+}
+
+.photograph_media_informations_title {
+    font-size: 26px;
+    color: #901c1c;
+    margin: 12px 0;
+}
+
+.photograph_media_informations_likes {
+    display: flex;
+}
+
+.photograph_media_informations_likes_counter {
+    margin: 12px 0;
+    font-size: 26px;
+    font-weight: bold;
+    color: #901c1c;
+    margin-right: 4px;
+}
+
+.photograph_media_informations_likes_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #901c1c;
+    font-size: 26px;
+}
+
+.photograph_page {
+    position: relative;
+}
+.photograph_stats {
+    position: fixed;
+    bottom: 0;
+    right: 64px;
+    background-color: #DB8876;
+    padding: 12px 32px;
+    font-size: 24px;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.photographer {
+    position: relative;
+}
+
+/* Lightbox */
+
+.lightbox {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #E5E5E5;
+    top: 0;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.lightbox-arrow {
+    font-size: 72px;
+    color: #901C1C;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.lightbox-content {
+    width: 80%;
+    height: 80%;
+    position: relative;
+}
+
+.close_button {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    transform: translate(150%, 0);
+}
+
+.lightbox-content-title {
+    font-size: 26px;
+    color: #901c1c;
+    margin: 0;
+}
+
+.lightbox-content-media {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: black;
+    box-shadow: 2px 2px 2px 2px rgb(112, 112, 112);
 }

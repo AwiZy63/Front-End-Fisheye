@@ -1,36 +1,89 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body class="photographer">
+  <header>
+    <a href="../">
       <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    </a>
+  </header>
+  <main id="main" class="photograph_page">
+    <div class="photograph-header">
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    </div>
+    <section class="photograph_works">
+      <div class="filter">
+        <p class="filter-text">Trier par</p>
+        <div class="filter-selector">
+          <select name="filter" id="filterSelector">
+            <option value="popularity">Popularité</option>
+            <option value="date">Date</option>
+            <option value="title">Title</option>
+          </select>
+        </div>
       </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+      <div class="photograph_medias">
+        <!-- <article class="photograph_media">
+          <a href="#">
+            <img class="photograph_media_picture" src="./assets/medias/Mimi/Animals_Rainbow.jpg" alt="Animals_Rainbow">
+          </a>
+          <div class="photograph_media_informations">
+            <p class="photograph_media_informations_title">Arc-en-ciel</p>
+            <div class="photograph_media_informations_likes">
+              <p class="photograph_media_informations_likes_counter">11</p>
+              <button class="photograph_media_informations_likes_button">&#10084;</button>
+            </div>
+          </div>
+        </article>
+         -->
+        
+      </div>
+    </section>
+    <div class="photograph_stats">
+      <span class="photograph_stats_likes">
+        0 &#10084;
+      </span>
+      <span class="photograph_stats_price">
+        ...€ / jour
+      </span>
+    </div>
+  </main>
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-arrow">&lt;</button>
+    <div class="lightbox-content">
+      <img src="./assets/icons/close.svg" id="closeLightbox" class="close_button" />
+      <img class="lightbox-content-media" src="./assets/medias/Ellie Rose/Architecture_Connected_Curves.jpg" alt="test">
+      <p class="lightbox-content-title">Arc-en-ciel</p>
+    </div>
+    <button class="lightbox-arrow">&gt;</button>
+  </div>
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form>
+        <div>
+          <label>Prénom</label>
+          <input />
+        </div>
+        <button class="contact_button">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts//factories/photograph.js"></script>
+  <script src="/scripts/utils/lightBox.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+</body>
+
 </html>

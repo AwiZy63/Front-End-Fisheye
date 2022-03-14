@@ -158,7 +158,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap:  32px 10%;
+    gap: 32px 10%;
 }
 
 .photograph_media {
@@ -219,7 +219,7 @@ h1 {
     position: fixed;
     bottom: 0;
     right: 64px;
-    background-color: #DB8876;
+    background-color: #db8876;
     padding: 12px 32px;
     font-size: 24px;
     border-radius: 5px 5px 0 0;
@@ -238,7 +238,7 @@ h1 {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     top: 0;
     display: none;
     justify-content: space-around;
@@ -247,7 +247,7 @@ h1 {
 
 .lightbox-arrow {
     font-size: 72px;
-    color: #901C1C;
+    color: #901c1c;
     background: none;
     border: none;
     cursor: pointer;
@@ -257,6 +257,11 @@ h1 {
     width: 80%;
     height: 80%;
     position: relative;
+}
+
+.lightbox-media-container {
+    width: 100%;
+    height: 100%;
 }
 
 .close_button {

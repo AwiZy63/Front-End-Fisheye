@@ -35,12 +35,17 @@ async function displayProfileData(photograph) {
 async function displayPhotographContent(photograph) {
     const photographMedias = document.querySelector(".photograph_medias")
     const { medias } = await getMedias(photograph);
+    let tabIndex = 0;
 
     const filter = document.getElementById("filterSelector");
     let filterValue = filter.value;
 
     medias.sort((a, b) => (b.likes - a.likes)).forEach(async (media) => {
+        tabIndex = tabIndex + 1;
+        console.log(tabIndex)
         media.photographerName = photograph.name;
+        media.tabIndex = tabIndex;
+
         const mediaModel = photographFactory(media);
         const mediaCardDOM = await mediaModel.getMediaCardDOM();
         photographMedias.appendChild(mediaCardDOM);
@@ -49,12 +54,18 @@ async function displayPhotographContent(photograph) {
     updateTotalLikes(medias, photograph.price);
 
     filter.addEventListener("change", (event) => {
+        tabIndex = 0;
         filterValue = event.currentTarget.value;
 
         photographMedias.innerHTML = "";
         medias.sort((a, b) => filterValue === "popularity" ? b.likes - a.likes : filterValue === "date" ? new Date(b.date) - new Date(a.date) : filterValue === "title" ? b.title < a.title : b > a)
             .forEach(async (media) => {
+                tabIndex = tabIndex + 1;
+                console.log(tabIndex)
+
                 media.photographerName = photograph.name;
+                media.tabIndex = tabIndex;
+
                 const mediaModel = photographFactory(media);
                 const mediaCardDOM = await mediaModel.getMediaCardDOM();
                 photographMedias.appendChild(mediaCardDOM);
@@ -70,22 +81,28 @@ async function updateTotalLikes(medias, price) {
         likes = likes + media.likes
     });
 
-    
-    
+
+
     const statsLikes = document.querySelector(".photograph_stats_likes");
     statsLikes.innerText = `${likes.toString()} \u2764`
     const statsPrice = document.querySelector(".photograph_stats_price");
     statsPrice.innerText = `${price.toString()}€ / jour`;
-
-    const likeButton = document.querySelectorAll(".photograph_media_informations_likes_button");
 
     const mediasContainer = document.querySelector('.photograph_medias');
     mediasContainer.addEventListener('click', function (e) {
         if (e.target.classList.contains('photograph_media_informations_likes_button')) {
             likes = likes + 1
             statsLikes.innerText = `${likes} \u2764`
+            console.log("clicked1")
+        }
+        if (e.target.classList.contains('photograph_media_picture')) {
+            console.log("clicked")
+            const selectedMedia = e.target.parentNode.parentNode.attributes.tabIndex.value - 1;
+
+            displayLightbox(medias, selectedMedia ? selectedMedia : 0);
         }
     });
+
 
 
 

@@ -47,11 +47,12 @@ function photographFactory(data) {
         // Faire le DOM des medias.
         const article = document.createElement("article");
         article.classList.add("photograph_media");
+        article.setAttribute("tabIndex", `${data.tabIndex}`)
 
         const imageLink = document.createElement("button");
         imageLink.classList.add("photograph_media_button");
 
-        imageLink.addEventListener("click", () => { displayLightbox() });
+        imageLink.addEventListener("click", () => { /*displayLightbox()*/ });
 
         const image = document.createElement("img");
         image.setAttribute("alt", data.title);

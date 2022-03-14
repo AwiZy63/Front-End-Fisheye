@@ -57,13 +57,15 @@
     </div>
   </main>
   <div id="lightbox" class="lightbox">
-    <button class="lightbox-arrow">&lt;</button>
+    <button id="leftArrow" class="lightbox-arrow">&lt;</button>
     <div class="lightbox-content">
       <img src="./assets/icons/close.svg" id="closeLightbox" class="close_button" />
-      <img class="lightbox-content-media" src="./assets/medias/Ellie Rose/Architecture_Connected_Curves.jpg" alt="test">
+      <div id="lightboxMediaContainer" class="lightbox-media-container">
+        <img class="lightbox-content-media" src="./assets/medias/Ellie Rose/Architecture_Connected_Curves.jpg" alt="test">
+      </div>
       <p class="lightbox-content-title">Arc-en-ciel</p>
     </div>
-    <button class="lightbox-arrow">&gt;</button>
+    <button id="rightArrow" class="lightbox-arrow">&gt;</button>
   </div>
   <div id="contact_modal">
     <div class="modal">

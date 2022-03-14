@@ -2,10 +2,7 @@ const lightBoxCloseButton = document.getElementById("closeLightbox");
 const lightBox = document.getElementById("lightbox");
 
 async function displayLightbox(medias, selectedMedia) {
-    console.log("Lightbox displayed");
     lightBox.style.display = 'flex';
-console.log(selectedMedia)
-    console.log(medias)
 
     const leftArrow = document.getElementById("leftArrow");
     const rightArrow = document.getElementById("rightArrow");
@@ -21,10 +18,9 @@ console.log(selectedMedia)
     const { name } = await getPhotograph(media.photographerId);
 
     const photographName = name.split(" ")[0].replace("-", " ");
-    // source = "/assets/medias/Ellie Rose/Sport_Jump.jpg";
+
     const mediaSource = `/assets/medias/${photographName}/${media.image ? media.image : media.video}`;
     const mediaType = media.image ? "img" : "video";
-    const lightBoxContent = document.querySelector(".lightbox-content");
     const mediaTitle = document.querySelector(".lightbox-content-title");
     mediaTitle.innerText = media.title;
 
@@ -44,7 +40,6 @@ console.log(selectedMedia)
 
     mediaElement.classList.add("lightbox-content-media");
 
-    //lightBoxContent.appendChild(mediaElement);
     mediaTemplate.replaceWith(mediaElement);
 
     function previousMedia() {
@@ -72,7 +67,7 @@ console.log(selectedMedia)
 
     function updateMedia(media) {
         const mediaContainer = document.getElementById("lightboxMediaContainer");
-        
+
         const newMediaSource = `/assets/medias/${photographName}/${media.image ? media.image : media.video}`;
 
         mediaTitle.innerText = media.title;

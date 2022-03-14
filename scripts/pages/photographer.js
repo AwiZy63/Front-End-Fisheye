@@ -42,7 +42,7 @@ async function displayPhotographContent(photograph) {
 
     medias.sort((a, b) => (b.likes - a.likes)).forEach(async (media) => {
         tabIndex = tabIndex + 1;
-        console.log(tabIndex)
+
         media.photographerName = photograph.name;
         media.tabIndex = tabIndex;
 
@@ -61,7 +61,6 @@ async function displayPhotographContent(photograph) {
         medias.sort((a, b) => filterValue === "popularity" ? b.likes - a.likes : filterValue === "date" ? new Date(b.date) - new Date(a.date) : filterValue === "title" ? b.title < a.title : b > a)
             .forEach(async (media) => {
                 tabIndex = tabIndex + 1;
-                console.log(tabIndex)
 
                 media.photographerName = photograph.name;
                 media.tabIndex = tabIndex;
@@ -77,11 +76,10 @@ async function displayPhotographContent(photograph) {
 
 async function updateTotalLikes(medias, price) {
     let likes = 0;
+
     medias.map((media) => {
         likes = likes + media.likes
     });
-
-
 
     const statsLikes = document.querySelector(".photograph_stats_likes");
     statsLikes.innerText = `${likes.toString()} \u2764`
@@ -91,21 +89,14 @@ async function updateTotalLikes(medias, price) {
     const mediasContainer = document.querySelector('.photograph_medias');
     mediasContainer.addEventListener('click', function (e) {
         if (e.target.classList.contains('photograph_media_informations_likes_button')) {
-            likes = likes + 1
-            statsLikes.innerText = `${likes} \u2764`
-            console.log("clicked1")
+            likes = likes + 1;
+            statsLikes.innerText = `${likes} \u2764`;
         }
         if (e.target.classList.contains('photograph_media_picture')) {
-            console.log("clicked")
             const selectedMedia = e.target.parentNode.parentNode.attributes.tabIndex.value - 1;
-
             displayLightbox(medias, selectedMedia ? selectedMedia : 0);
         }
     });
-
-
-
-
 }
 
 async function init() {

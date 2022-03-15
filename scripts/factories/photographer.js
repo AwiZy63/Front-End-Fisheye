@@ -12,6 +12,7 @@ function photographerFactory (data) {
 
     const img = document.createElement('img');
     img.setAttribute('src', picture);
+    img.setAttribute('alt', `image: ${name}`);
     //  img.setAttribute("aria-disabled", "true");
 
     const h2 = document.createElement('h2');

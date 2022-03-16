@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 // eslint-disable-next-line no-unused-vars
-function displayModal () {
+function displayModal() {
   const modal = document.getElementById('contact_modal');
   modal.style.display = 'block';
 
@@ -9,7 +9,7 @@ function displayModal () {
   contactTitle.innerText = `Contactez-moi | ${photographName}`;
 }
 
-function closeModal () {
+function closeModal() {
   const modal = document.getElementById('contact_modal');
   modal.style.display = 'none';
 }
@@ -17,7 +17,7 @@ function closeModal () {
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', (event) => validateForm(event));
 
-function validateForm (event) {
+function validateForm(event) {
   event.preventDefault();
   const firstInput = document.getElementById('firstName');
   const lastInput = document.getElementById('lastName');
@@ -41,29 +41,18 @@ function validateForm (event) {
   !data.message || data.message.length < 2 ? error.message = true : null;
 
   const createError = (element, errorName) => {
-    // Création d'un tableau pour l'insertion d'une variable temporaire pour la fonction.
     const errorLabel = [];
-    // Insertion d'une variable temporaire dans le tableau précédent pour la fonction par rapport au nom de l'erreur.
-    errorLabel[errorName] = document.getElementById(`${errorName}Error`);
-    // Condition ternaire qui vérifie si l'erreur correspondant est oui ou non activée.
+    errorLabel[errorName] = document.getElementById(`${errorName}Data`);
+    errorLabel[errorName].removeAttribute("data-error-visible");
 
-    if (error[errorName]) {
-      errorLabel[errorName].style.display !== 'block';
-      if (element.type) {
-        element.classList.toggle('error-input');
-        errorLabel[errorName].style.display = 'block';
-      } else {
-        errorLabel[errorName].style.display = 'block';
-      }
-    } else if (errorLabel[errorName].style.display === 'block') {
-      if (element.type) {
-        // Si c'est un input, on désactive la classe d'erreur sur le champ du formulaire ainsi que le texte d'erreur.
-        element.classList.toggle('error-input');
-        errorLabel[errorName].style.display = 'none';
-      } else {
-        // Sinon on désactive uniquement le texte.
-        errorLabel[errorName].style.display = 'none';
-      }
+    if (error[errorName] && !errorLabel[errorName].attributes["data-error-visible"]) {
+      element.classList.add('error-input');
+      errorLabel[errorName].setAttribute("data-error-visible", "true");
+    }
+
+    if (!error[errorName] && !errorLabel[errorName].attributes["data-error-visible"]) {
+      element.classList.remove('error-input');
+      errorLabel[errorName].removeAttribute("data-error-visible");
     }
   };
 
@@ -75,13 +64,13 @@ function validateForm (event) {
 
   Object.keys(error).length === 0
     ? (
-        console.log(data),
-        firstInput.value = '',
-        lastInput.value = '',
-        emailInput.value = '',
-        messageInput.value = '',
-        alert('formulaire envoyé'),
-        closeModal()
-      )
+      console.log(data),
+      firstInput.value = '',
+      lastInput.value = '',
+      emailInput.value = '',
+      messageInput.value = '',
+      alert('formulaire envoyé'),
+      closeModal()
+    )
     : event.preventDefault();
 }

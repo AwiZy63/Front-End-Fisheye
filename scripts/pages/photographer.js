@@ -101,6 +101,7 @@ async function updateTotalLikes (medias, price) {
 
 async function init () {
   const photograph = await getPhotograph();
+  document.title = `Fisheye - ${photograph.name}`;
   displayProfileData(photograph);
   displayPhotographContent(photograph);
 }

@@ -57,15 +57,15 @@
     </div>
   </main>
   <div id="lightbox" class="lightbox">
-    <button id="leftArrow" class="lightbox-arrow">&lt;</button>
+    <button id="leftArrow" class="lightbox-arrow" aria-label="Media précédent">❮</button>
     <div class="lightbox-content">
-      <img src="./assets/icons/close.svg" id="closeLightbox" class="close_button" />
+      <img src="./assets/icons/close.svg" id="closeLightbox" class="close_button"  aria-label="Fermer la lightbox"/>
       <div id="lightboxMediaContainer" class="lightbox-media-container">
-        <img class="lightbox-content-media" src="./assets/medias/Ellie Rose/Architecture_Connected_Curves.jpg" alt="test">
+        <img class="lightbox-content-media" src="./assets/medias/Ellie Rose/Architecture_Connected_Curves.jpg" alt="">
       </div>
-      <p class="lightbox-content-title">Arc-en-ciel</p>
+      <p class="lightbox-content-title" aria-label="Titre du media,">Arc-en-ciel</p>
     </div>
-    <button id="rightArrow" class="lightbox-arrow">&gt;</button>
+    <button id="rightArrow" class="lightbox-arrow" aria-label="Media suivant">❯</button>
   </div>
   <div id="contact_modal">
     <div class="modal">
@@ -73,24 +73,29 @@
         <h2 id="contact_title">Contactez-moi</h2>
         <img src="assets/icons/close.svg" onclick="closeModal()" />
       </header>
-      <form id="contactForm" method="post">
+      <form id="contactForm" action="javascript:void(0)" method="post">
         <div>
-          <label for="lastName">Nom</label>
-          <input type="text" name="lastName" id="lastName" class="contact-input">
-          <p class="input_error" id="lastNameError">Veuillez renseigner votre nom.</p>
-          <label for="firstName">Prénom</label>
-          <input type="text" name="firstName" id="firstName" class="contact-input">
-          <p class="input_error" id="firstNameError">Veuillez renseigner votre prénom.</p>
+          <div id="lastNameData" class="formData" data-error="Veuillez renseigner votre nom.">
+            <label id="lastName-label" for="lastName">Nom</label>
+            <input aria-labelledby="lastName-label" type="text" name="lastName" id="lastName" class="formData contact-input">
+          </div>
 
-          <label for="email">Email</label>       
-          <input type="text" name="email" id="email" class="contact-input">
-          <p class="input_error" id="emailError">Veuillez renseigner un mail valide.</p>
+          <div id="firstNameData" class="formData" data-error="Veuillez renseigner votre prénom.">
+            <label id="firstName-label" for="firstName">Prénom</label>
+            <input aria-labelledby="firstName-label" type="text" name="firstName" id="firstName" class="formData contact-input">
+          </div>
 
-          <label for="message">Message</label>
-          <textarea name="message" id="message" class="contact-message"></textarea>
-          <p class="input_error" id="messageError">Veuillez renseigner votre message.</p>
+          <div id="emailData" class="formData" data-error="Veuillez renseigner un mail valide.">  
+            <label id="email-label" for="email">Email</label>       
+            <input aria-labelledby="email-label" type="text" name="email" id="email" class="formData contact-input">
+          </div>
+
+          <div id="messageData" class="formData" data-error="Veuillez renseigner votre message.">
+            <label id="message-label" for="message">Message</label>
+            <textarea aria-labelledby="message-label" name="message" id="message" class="contact-message"></textarea>
+          </div>
         </div>
-        <button class="contact_submit">Envoyer</button>
+        <button aria-label="Envoyer" class="contact_submit">Envoyer</button>
       </form>
     </div>
   </div>

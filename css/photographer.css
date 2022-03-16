@@ -104,3 +104,24 @@ form textarea {
     border: none;
     border-radius: 5px;
 }
+
+
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 20px;
+    color: red;
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 7px;
+    text-align: left;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+}
+.formData[data-error-visible="true"]::after {
+    opacity: 1;
+}
+
+.error-input {
+    border: 2px solid red;
+}

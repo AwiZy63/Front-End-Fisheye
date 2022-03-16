@@ -3,6 +3,11 @@ const lightBox = document.getElementById('lightbox');
 let handleKeyboard;
 
 // eslint-disable-next-line no-unused-vars
+/**
+ * Display a lightbox with the selected media
+ * @param medias - An array of media objects.
+ * @param selectedMedia - The index of the media to display.
+ */
 async function displayLightbox (medias, selectedMedia) {
   lightBox.style.display = 'flex';
 
@@ -84,10 +89,16 @@ async function displayLightbox (medias, selectedMedia) {
 
   handleKeyboard = (event) => {
     const key = event.key;
+    console.log(key)
     if (key === 'ArrowRight') {
+      rightArrow.focus();
       nextMedia();
     } else if (key === 'ArrowLeft') {
       previousMedia();
+      leftArrow.focus();
+    } else if (key === 'Escape') {
+      lightBoxCloseButton.focus();
+      hideLightbox();
     }
   };
   document.addEventListener('keydown', handleKeyboard);

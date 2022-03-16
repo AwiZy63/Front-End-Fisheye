@@ -1,38 +1,47 @@
 // eslint-disable-next-line no-unused-vars
+let count = 1;
 function photographerFactory (data) {
   const { name, portrait, tagline, city, country, price, id } = data;
 
   const picture = `assets/photographers/${portrait}`;
 
   function getUserCardDOM () {
+    count = count + 1;
+    console.log(count)
     const article = document.createElement('article');
+    article.setAttribute('aria-label', `Carte de ${name},.`);
+    // article.setAttribute('role', 'main');
+    
     const link = document.createElement('a');
     link.setAttribute('href', `photographer.html?id=${id}`);
-    //  link.setAttribute("aria-label", `Lien de redirection vers le profil de ${name}`);
+    link.setAttribute('role', 'banner');
+    link.setAttribute('aria-label', `Lien vers la page de ${name},.`);
+    link.setAttribute('tabindex', count);
 
     const img = document.createElement('img');
     img.setAttribute('src', picture);
-    img.setAttribute('alt', `image: ${name}`);
-    //  img.setAttribute("aria-disabled", "true");
+    img.setAttribute('alt', `Photo de ${name},.`);
+    img.setAttribute('role', 'img');
+    img.setAttribute('aria-describedBy', `picture`);
 
     const h2 = document.createElement('h2');
+    h2.setAttribute('aria-label', "Le nom du photographe est,");
     h2.textContent = name;
-    //  h2.setAttribute('aria-label', `Le nom du photographe est ${name}`);
 
     const locationElement = document.createElement('p');
+    locationElement.setAttribute('aria-label', `Lieu,`);
     locationElement.textContent = `${city}, ${country}`;
     locationElement.classList.add('photographer_location');
-    //  locationElement.setAttribute('aria-label', `${city}, ${country}`)
 
     const descriptionElement = document.createElement('p');
+    descriptionElement.setAttribute('aria-label', `Son slogan,`);
     descriptionElement.textContent = tagline;
     descriptionElement.classList.add('photographer_description');
-    //  descriptionElement.setAttribute('aria-label', `Slogan de ${name}, ${tagline}`)
 
     const priceElement = document.createElement('p');
     priceElement.textContent = `${price}€/jour`;
     priceElement.classList.add('photographer_price');
-    //  priceElement.setAttribute('aria-label', `Son prix est de ${price} par jour`)
+    priceElement.setAttribute('aria-label', `Son prix est de,`);
 
     article.appendChild(link);
 

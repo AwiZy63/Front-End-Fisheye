@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
@@ -12,7 +11,7 @@
 <body class="photographer">
   <header>
     <a tabindex="1" href="../">
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="" />
     </a>
   </header>
   <main id="main" class="photograph_page">
@@ -59,9 +58,9 @@
   <div id="lightbox" class="lightbox">
     <button id="leftArrow" class="lightbox-arrow" aria-label="Media précédent">❮</button>
     <div class="lightbox-content">
-      <img src="./assets/icons/close.svg" id="closeLightbox" class="close_button"  aria-label="Fermer la lightbox"/>
+      <img src="./assets/icons/close.svg" id="closeLightbox" class="close_button" alt="Bouton pour fermer la lightbox" aria-label="Fermer la lightbox"/>
       <div id="lightboxMediaContainer" class="lightbox-media-container">
-        <img class="lightbox-content-media" src="./assets/medias/Ellie Rose/Architecture_Connected_Curves.jpg" alt="">
+        <img class="lightbox-content-media" src="./assets/medias/EllieRose/Architecture_Connected_Curves.jpg" alt="">
       </div>
       <p class="lightbox-content-title" aria-label="Titre du media,">Arc-en-ciel</p>
     </div>
@@ -71,7 +70,7 @@
     <div class="modal">
       <header>
         <h2 id="contact_title">Contactez-moi</h2>
-        <img id="close_modal" src="assets/icons/close.svg" />
+        <img id="close_modal" src="assets/icons/close.svg" alt="Bouton pour fermer la modale" />
       </header>
       <form id="contactForm" action="javascript:void(0)" method="post">
         <div>
@@ -99,12 +98,11 @@
       </form>
     </div>
   </div>
-  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
-  <script src="/scripts/pages/photographer.js"></script>
-  <script src="/scripts//factories/photograph.js"></script>
-  <script src="/scripts/utils/lightBox.js"></script>
-  <script src="/scripts/utils/contactForm.js"></script>
-  <script src="/scripts//utils/toggleModal.js"></script>
+  <script src="./scripts/pages/photographer.js"></script>
+  <script src="./scripts//factories/photograph.js"></script>
+  <script src="./scripts/utils/lightBox.js"></script>
+  <script src="./scripts/utils/contactForm.js"></script>
+  <script src="./scripts//utils/toggleModal.js"></script>
 </body>
 
 </html>

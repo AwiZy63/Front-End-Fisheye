@@ -1,5 +1,5 @@
 // Mettre le code JavaScript lié à la page photographer.html
-async function getPhotograph() {
+const getPhotograph = async () => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
 
@@ -15,7 +15,7 @@ async function getPhotograph() {
   return photographer[0];
 }
 
-async function getMedias(photograph) {
+const getMedias = async (photograph) => {
   const data = await fetch('./data/photographers.json').then((response) => response.json());
   const medias = data.media.filter(media => media.photographerId === photograph.id);
 
@@ -24,7 +24,7 @@ async function getMedias(photograph) {
   });
 };
 
-async function displayProfileData(photograph) {
+const displayProfileData = async (photograph) => {
   const profileSection = document.querySelector('.photograph_page');
   // eslint-disable-next-line no-undef
   const photographModel = photographFactory(photograph);
@@ -41,7 +41,7 @@ async function displayProfileData(photograph) {
   profileSection.prepend(profileCardDOM);
 };
 
-async function displayPhotographContent(photograph) {
+const displayPhotographContent = async (photograph) => {
   const photographMedias = document.querySelector('.photograph_medias');
   const { medias } = await getMedias(photograph);
   let tabIndex = 0;
@@ -84,7 +84,7 @@ async function displayPhotographContent(photograph) {
   });
 };
 
-async function updateTotalLikes(medias, price) {
+const updateTotalLikes = async (medias, price) => {
   let likes = 0;
 
   medias.map((media) => (likes = likes + media.likes));
@@ -95,21 +95,20 @@ async function updateTotalLikes(medias, price) {
   statsPrice.innerText = `${price.toString()}€ / heure`;
 
   const mediasContainer = document.querySelector('.photograph_medias');
-  mediasContainer.addEventListener('click', function (e) {
-    if (e.target.classList.contains('photograph_media_informations_likes_button')) {
+  mediasContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('photograph_media_informations_likes_button')) {
       likes = likes + 1;
       statsLikes.innerText = `${likes} \u2764`;
     }
-    if (e.target.classList.contains('photograph_media_picture')) {
-      const selectedMedia = e.target.parentNode.attributes.tabIndex.value - 1;
+    if (event.target.classList.contains('photograph_media_picture')) {
+      const selectedMedia = event.target.parentNode.attributes.tabIndex.value - 1;
       // eslint-disable-next-line no-undef
       displayLightbox(medias, selectedMedia || 0);
     }
   });
 
-  mediasContainer.addEventListener('keydown', function (e) {
-    // console.log(e)
-    const keyPressed = e.key;
+  mediasContainer.addEventListener('keydown', (event) => {
+    const keyPressed = event.key;
     if (keyPressed === ' ' || keyPressed === 'Enter') {
       const selectedMedia = e.target.attributes.tabIndex.value - 1;
       // eslint-disable-next-line no-undef
@@ -118,7 +117,7 @@ async function updateTotalLikes(medias, price) {
   });
 }
 
-async function init() {
+const init = async () => {
   const photograph = await getPhotograph();
   document.title = `Fisheye - ${photograph.name}`;
   displayProfileData(photograph);

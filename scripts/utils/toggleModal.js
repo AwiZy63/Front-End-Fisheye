@@ -10,6 +10,7 @@ const toggleModal = () => {
             document.removeEventListener('keydown', hide);
         }
     }
+    
     document.addEventListener('keydown', hide);
     lastInput.focus();
 

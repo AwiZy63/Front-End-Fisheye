@@ -2,22 +2,23 @@ const lightBoxCloseButton = document.getElementById('closeLightbox');
 const lightBox = document.getElementById('lightbox');
 let handleKeyboard;
 
+
 // eslint-disable-next-line no-unused-vars
+const hideLightbox = () => {
+  document.removeEventListener('keydown', handleKeyboard);
+  lightBox.style.display = 'none';
+}
+
 /**
  * Display a lightbox with the selected media
  * @param medias - An array of media objects.
  * @param selectedMedia - The index of the media to display.
  */
-async function displayLightbox (medias, selectedMedia) {
+const displayLightbox = async (medias, selectedMedia) => {
   lightBox.style.display = 'flex';
 
   const leftArrow = document.getElementById('leftArrow');
   const rightArrow = document.getElementById('rightArrow');
-
-  if (leftArrow && rightArrow) {
-    leftArrow.addEventListener('click', previousMedia);
-    rightArrow.addEventListener('click', nextMedia);
-  }
 
   let count = selectedMedia;
   let media = medias[count];
@@ -25,7 +26,7 @@ async function displayLightbox (medias, selectedMedia) {
   // eslint-disable-next-line no-undef
   const { name } = await getPhotograph(media.photographerId);
 
-  const photographName = name.split(' ')[0].replace('-', ' ');
+  const photographName = name.split(' ')[0].replace('-', '');
 
   const mediaSource = `/assets/medias/${photographName}/${media.image ? media.image : media.video}`;
   const mediaType = media.image ? 'img' : 'video';
@@ -50,30 +51,7 @@ async function displayLightbox (medias, selectedMedia) {
 
   mediaTemplate.replaceWith(mediaElement);
 
-  function previousMedia () {
-    count = count - 1;
-    media = medias[count];
-
-    if (!media) {
-      count = medias.length - 1;
-      media = medias[count];
-    }
-
-    updateMedia(media);
-  }
-  function nextMedia () {
-    count = count + 1;
-    media = medias[count];
-
-    if (!media) {
-      count = 0;
-      media = medias[count];
-    }
-
-    updateMedia(media);
-  }
-
-  function updateMedia (media) {
+  const updateMedia = (media) => {
     const mediaContainer = document.getElementById('lightboxMediaContainer');
 
     const newMediaSource = `./assets/medias/${photographName}/${media.image ? media.image : media.video}`;
@@ -85,6 +63,35 @@ async function displayLightbox (medias, selectedMedia) {
     } else {
       mediaContainer.innerHTML = `<video class="lightbox-content-media" src="${newMediaSource}" alt="${media.title}" controls="" autoplay="" muted="" loop="" type="video/mp4"></video>`;
     }
+  }
+
+  const previousMedia = () => {
+    count = count - 1;
+    media = medias[count];
+
+    if (!media) {
+      count = medias.length - 1;
+      media = medias[count];
+    }
+
+    updateMedia(media);
+  }
+  
+  const nextMedia = () => {
+    count = count + 1;
+    media = medias[count];
+
+    if (!media) {
+      count = 0;
+      media = medias[count];
+    }
+
+    updateMedia(media);
+  }
+
+  if (leftArrow && rightArrow) {
+    leftArrow.addEventListener('click', previousMedia);
+    rightArrow.addEventListener('click', nextMedia);
   }
 
   handleKeyboard = (event) => {
@@ -100,12 +107,8 @@ async function displayLightbox (medias, selectedMedia) {
       hideLightbox();
     }
   };
+
   document.addEventListener('keydown', handleKeyboard);
 }
 
 lightBoxCloseButton.addEventListener('click', hideLightbox);
-
-function hideLightbox () {
-  document.removeEventListener('keydown', handleKeyboard);
-  lightBox.style.display = 'none';
-}

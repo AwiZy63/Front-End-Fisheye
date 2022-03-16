@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars
-function photographFactory (data) {
+const photographFactory = (data) => {
   const { portrait } = data;
   const name = data.name ? data.name : data.photographerName;
   const photographerName = data.photographerName ? data.photographerName.split(' ')[0].replace('-', '') : null;
   const picture = `./assets/photographers/${portrait}`;
   const media = `./assets/medias/${photographerName}`;
 
-  function getProfileCardDOM () {
+  const getProfileCardDOM = () => {
     const profileHeader = document.querySelector('.photograph-header');
 
     const contactButton = document.querySelector('.contact_button');
@@ -44,7 +44,7 @@ function photographFactory (data) {
     return profileHeader;
   }
 
-  async function getMediaCardDOM () {
+  const getMediaCardDOM = () => {
     // Faire le DOM des medias.
     const article = document.createElement('article');
     article.classList.add('photograph_media');

@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 let count = 1;
-function photographerFactory (data) {
+const photographerFactory = (data) => {
   const { name, portrait, tagline, city, country, price, id } = data;
 
   const picture = `assets/photographers/${portrait}`;
 
-  function getUserCardDOM () {
+  const getUserCardDOM = () => {
     count = count + 1;
 
     const article = document.createElement('article');

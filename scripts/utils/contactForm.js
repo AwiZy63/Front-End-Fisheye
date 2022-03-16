@@ -1,28 +1,14 @@
 /* eslint-disable no-unused-expressions */
 // eslint-disable-next-line no-unused-vars
-function displayModal() {
-  const modal = document.getElementById('contact_modal');
-  modal.style.display = 'block';
-
-  const photographName = document.querySelector('.photograph_name').textContent;
-  const contactTitle = document.getElementById('contact_title');
-  contactTitle.innerText = `Contactez-moi | ${photographName}`;
-}
-
-function closeModal() {
-  const modal = document.getElementById('contact_modal');
-  modal.style.display = 'none';
-}
-
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', (event) => validateForm(event));
 
-function validateForm(event) {
-  event.preventDefault();
+const validateForm = (event) => {
   const firstInput = document.getElementById('firstName');
   const lastInput = document.getElementById('lastName');
   const emailInput = document.getElementById('email');
   const messageInput = document.getElementById('message');
+  event.preventDefault();
 
   const emailRegex = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
 

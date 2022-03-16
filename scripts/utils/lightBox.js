@@ -89,7 +89,6 @@ async function displayLightbox (medias, selectedMedia) {
 
   handleKeyboard = (event) => {
     const key = event.key;
-    console.log(key)
     if (key === 'ArrowRight') {
       rightArrow.focus();
       nextMedia();

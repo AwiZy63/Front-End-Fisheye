@@ -7,7 +7,7 @@ function photographerFactory (data) {
 
   function getUserCardDOM () {
     count = count + 1;
-    console.log(count)
+
     const article = document.createElement('article');
     article.setAttribute('aria-label', `Carte de ${name},.`);
     // article.setAttribute('role', 'main');
@@ -39,7 +39,7 @@ function photographerFactory (data) {
     descriptionElement.classList.add('photographer_description');
 
     const priceElement = document.createElement('p');
-    priceElement.textContent = `${price}€/jour`;
+    priceElement.textContent = `${price}€/heure`;
     priceElement.classList.add('photographer_price');
     priceElement.setAttribute('aria-label', `Son prix est de,`);
 

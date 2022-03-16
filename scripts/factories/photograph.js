@@ -48,11 +48,12 @@ function photographFactory (data) {
     // Faire le DOM des medias.
     const article = document.createElement('article');
     article.classList.add('photograph_media');
-    article.setAttribute('tabIndex', `${data.tabIndex}`);
+    // article.setAttribute('tabIndex', `${data.tabIndex}`);
 
     const imageLink = document.createElement('button');
     imageLink.classList.add('photograph_media_button');
-
+    imageLink.setAttribute('tabIndex', `${data.tabIndex}`);
+    
     const image = document.createElement('img');
     image.setAttribute('alt', data.title);
     // eslint-disable-next-line no-unused-expressions
@@ -68,6 +69,7 @@ function photographFactory (data) {
 
     const informations = document.createElement('div');
     informations.classList.add('photograph_media_informations');
+    informations.setAttribute('aria-hidden', 'true');
 
     const title = document.createElement('p');
     title.classList.add('photograph_media_informations_title');

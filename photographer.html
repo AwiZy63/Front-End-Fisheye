@@ -11,19 +11,19 @@
 
 <body class="photographer">
   <header>
-    <a href="../">
+    <a tabindex="1" href="../">
       <img src="assets/images/logo.png" class="logo" />
     </a>
   </header>
   <main id="main" class="photograph_page">
     <div class="photograph-header">
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <button tabindex="1" class="contact_button">Contactez-moi</button>
     </div>
     <section class="photograph_works">
       <div class="filter">
         <p class="filter-text">Trier par</p>
         <div class="filter-selector">
-          <select name="filter" id="filterSelector">
+          <select tabindex="1" name="filter" id="filterSelector">
             <option value="popularity">Popularité</option>
             <option value="date">Date</option>
             <option value="title">Title</option>
@@ -71,38 +71,40 @@
     <div class="modal">
       <header>
         <h2 id="contact_title">Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img id="close_modal" src="assets/icons/close.svg" />
       </header>
       <form id="contactForm" action="javascript:void(0)" method="post">
         <div>
           <div id="lastNameData" class="formData" data-error="Veuillez renseigner votre nom.">
             <label id="lastName-label" for="lastName">Nom</label>
-            <input aria-labelledby="lastName-label" type="text" name="lastName" id="lastName" class="formData contact-input">
+            <input tabindex="1" aria-labelledby="lastName-label" type="text" name="lastName" id="lastName" class="formData contact-input">
           </div>
 
           <div id="firstNameData" class="formData" data-error="Veuillez renseigner votre prénom.">
             <label id="firstName-label" for="firstName">Prénom</label>
-            <input aria-labelledby="firstName-label" type="text" name="firstName" id="firstName" class="formData contact-input">
+            <input tabindex="1" aria-labelledby="firstName-label" type="text" name="firstName" id="firstName" class="formData contact-input">
           </div>
 
           <div id="emailData" class="formData" data-error="Veuillez renseigner un mail valide.">  
             <label id="email-label" for="email">Email</label>       
-            <input aria-labelledby="email-label" type="text" name="email" id="email" class="formData contact-input">
+            <input tabindex="1" aria-labelledby="email-label" type="text" name="email" id="email" class="formData contact-input">
           </div>
 
           <div id="messageData" class="formData" data-error="Veuillez renseigner votre message.">
             <label id="message-label" for="message">Message</label>
-            <textarea aria-labelledby="message-label" name="message" id="message" class="contact-message"></textarea>
+            <textarea tabindex="1" aria-labelledby="message-label" name="message" id="message" class="contact-message"></textarea>
           </div>
         </div>
-        <button aria-label="Envoyer" class="contact_submit">Envoyer</button>
+        <button tabindex="1" aria-label="Envoyer" class="contact_submit">Envoyer</button>
       </form>
     </div>
   </div>
+  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
   <script src="/scripts/pages/photographer.js"></script>
   <script src="/scripts//factories/photograph.js"></script>
   <script src="/scripts/utils/lightBox.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts//utils/toggleModal.js"></script>
 </body>
 
 </html>

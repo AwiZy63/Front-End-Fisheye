@@ -3,8 +3,8 @@ function photographFactory (data) {
   const { portrait } = data;
   const name = data.name ? data.name : data.photographerName;
   const photographerName = data.photographerName ? data.photographerName.split(' ')[0].replace('-', '') : null;
-  const picture = `../../assets/photographers/${portrait}`;
-  const media = `../../assets/medias/${photographerName}`;
+  const picture = `./assets/photographers/${portrait}`;
+  const media = `./assets/medias/${photographerName}`;
 
   function getProfileCardDOM () {
     const profileHeader = document.querySelector('.photograph-header');

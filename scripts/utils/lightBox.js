@@ -76,7 +76,7 @@ async function displayLightbox (medias, selectedMedia) {
   function updateMedia (media) {
     const mediaContainer = document.getElementById('lightboxMediaContainer');
 
-    const newMediaSource = `../../assets/medias/${photographName}/${media.image ? media.image : media.video}`;
+    const newMediaSource = `./assets/medias/${photographName}/${media.image ? media.image : media.video}`;
 
     mediaTitle.innerText = media.title;
 

@@ -3,7 +3,7 @@ async function getPhotograph() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
 
-  const data = await fetch('../../data/photographers.json').then((response) => response.json());
+  const data = await fetch('./data/photographers.json').then((response) => response.json());
   const pageId = Number(urlParams.get('id'));
   const photographer = data.photographers.filter(photographer => photographer.id === pageId);
 
@@ -16,7 +16,7 @@ async function getPhotograph() {
 }
 
 async function getMedias(photograph) {
-  const data = await fetch('../../data/photographers.json').then((response) => response.json());
+  const data = await fetch('./data/photographers.json').then((response) => response.json());
   const medias = data.media.filter(media => media.photographerId === photograph.id);
 
   return ({

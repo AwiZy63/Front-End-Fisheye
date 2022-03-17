@@ -3,7 +3,6 @@ const getPhotographers = async () => {
   const data = await fetch('./data/photographers.json').then((response) => response.json());
   const photographers = data.photographers;
 
-  // et bien retourner le tableau photographers seulement une fois
   return ({
     photographers: [...photographers]
   });

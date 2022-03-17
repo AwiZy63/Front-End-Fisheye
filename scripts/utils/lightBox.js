@@ -28,7 +28,7 @@ const displayLightbox = async (medias, selectedMedia) => {
 
   const photographName = name.split(' ')[0].replace('-', '');
 
-  const mediaSource = `/assets/medias/${photographName}/${media.image ? media.image : media.video}`;
+  const mediaSource = `./assets/medias/${photographName}/${media.image ? media.image : media.video}`;
   const mediaType = media.image ? 'img' : 'video';
   const mediaTitle = document.querySelector('.lightbox-content-title');
   mediaTitle.innerText = media.title;

@@ -1,4 +1,8 @@
-// Mettre le code JavaScript lié à la page photographer.html
+/**
+ * It fetches the data from the photographers.json file and returns the photographer with the specified
+ * id.
+ * @returns A promise.
+ */
 const getPhotograph = async () => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -15,6 +19,12 @@ const getPhotograph = async () => {
   return photographer[0];
 }
 
+/**
+ * It fetches the data from the photographers.json file and filters the media array to only include the
+ * media that have the same photographerId as the photograph.
+ * @param photograph - The photograph to get the medias for.
+ * @returns An object with a key of medias and a value of an array of media objects.
+ */
 const getMedias = async (photograph) => {
   const data = await fetch('./data/photographers.json').then((response) => response.json());
   const medias = data.media.filter(media => media.photographerId === photograph.id);
@@ -24,6 +34,10 @@ const getMedias = async (photograph) => {
   });
 };
 
+/**
+ * It displays the profile card for the photograph.
+ * @param photograph - the photograph object that we want to display
+ */
 const displayProfileData = async (photograph) => {
   const profileSection = document.querySelector('.photograph_page');
   // eslint-disable-next-line no-undef
@@ -41,6 +55,10 @@ const displayProfileData = async (photograph) => {
   profileSection.prepend(profileCardDOM);
 };
 
+/**
+ * Display the content of a photograph
+ * @param photograph - the photograph object that contains the medias
+ */
 const displayPhotographContent = async (photograph) => {
   const photographMedias = document.querySelector('.photograph_medias');
   const { medias } = await getMedias(photograph);
@@ -84,6 +102,11 @@ const displayPhotographContent = async (photograph) => {
   });
 };
 
+/**
+ * Update the total likes and the price of the photograph
+ * @param medias - an array of media objects
+ * @param price - the price of the photograph
+ */
 const updateTotalLikes = async (medias, price) => {
   let likes = 0;
 
@@ -117,6 +140,9 @@ const updateTotalLikes = async (medias, price) => {
   });
 }
 
+/**
+ * It gets the photograph from the database and displays the photograph content.
+ */
 const init = async () => {
   const photograph = await getPhotograph();
   document.title = `Fisheye - ${photograph.name}`;

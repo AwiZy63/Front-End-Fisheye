@@ -1,4 +1,10 @@
 // eslint-disable-next-line no-unused-vars
+/**
+ * It creates a photograph object.
+ * @param data - The data that will be used to create the profile card and the media card.
+ * @returns an object that contains the name of the photographer, the path to the profile picture, the
+ * path to the media folder and the function to create the profile card.
+ */
 const photographFactory = (data) => {
   const { portrait } = data;
   const name = data.name ? data.name : data.photographerName;
@@ -6,6 +12,10 @@ const photographFactory = (data) => {
   const picture = `./assets/photographers/${portrait}`;
   const media = `./assets/medias/${photographerName}`;
 
+  /**
+   * Create a DOM element for the profile card and add it to the photograph header
+   * @returns The DOM element that contains the profile card.
+   */
   const getProfileCardDOM = () => {
     const profileHeader = document.querySelector('.photograph-header');
 
@@ -44,6 +54,9 @@ const photographFactory = (data) => {
     return profileHeader;
   }
 
+  /**
+   * Create the DOM for the media card
+   */
   const getMediaCardDOM = () => {
     // Faire le DOM des medias.
     const article = document.createElement('article');

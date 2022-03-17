@@ -3,6 +3,9 @@ const lightBox = document.getElementById('lightbox');
 let handleKeyboard;
 
 
+/**
+ * Hide the lightbox by removing the event listener and setting the display to none
+ */
 // eslint-disable-next-line no-unused-vars
 const hideLightbox = () => {
   document.removeEventListener('keydown', handleKeyboard);
@@ -51,6 +54,10 @@ const displayLightbox = async (medias, selectedMedia) => {
 
   mediaTemplate.replaceWith(mediaElement);
 
+  /**
+   * Update the media in the lightbox
+   * @param media - The media object to be displayed.
+   */
   const updateMedia = (media) => {
     const mediaContainer = document.getElementById('lightboxMediaContainer');
 
@@ -65,6 +72,12 @@ const displayLightbox = async (medias, selectedMedia) => {
     }
   }
 
+  /**
+   * * Decrement the count variable by 1. 
+   * * Set the media variable to the media at the new count index. 
+   * * If the media variable is undefined, set it to the last media in the medias array. 
+   * * Update the media in the UI
+   */
   const previousMedia = () => {
     count = count - 1;
     media = medias[count];
@@ -77,6 +90,13 @@ const displayLightbox = async (medias, selectedMedia) => {
     updateMedia(media);
   }
   
+  /**
+   * `nextMedia()` is a function that takes no arguments and returns no value. 
+   * called by the `next` button on the page. 
+   * It takes the current media and increments the count by 1. 
+   * If the count is greater than the number of medias, it resets the count to 0. 
+   * It then updates the media to the next media in the list.
+   */
   const nextMedia = () => {
     count = count + 1;
     media = medias[count];
@@ -94,6 +114,11 @@ const displayLightbox = async (medias, selectedMedia) => {
     rightArrow.addEventListener('click', nextMedia);
   }
 
+  /* This is the event listener for the keyboard. 
+  called when the user presses a key. 
+  It takes the event as an argument and checks if the key pressed is the right or left arrow. 
+  If it is, it calls the `previousMedia()` or `nextMedia()` function. 
+  If the key pressed is the escape key, it calls the `hideLightbox()` function. */
   handleKeyboard = (event) => {
     const key = event.key;
     if (key === 'ArrowRight') {

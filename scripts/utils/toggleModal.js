@@ -1,3 +1,6 @@
+/**
+ * It toggles the modal on and off.
+ */
 const toggleModal = () => {
     const modal = document.getElementById('contact_modal');
     const lastInput = document.getElementById('lastName');

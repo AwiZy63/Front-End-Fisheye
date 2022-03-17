@@ -1,10 +1,22 @@
 // eslint-disable-next-line no-unused-vars
 let count = 1;
+/**
+ * It creates a photographer object.
+ * @param data - the data that will be used to create the photographer
+ * @returns A function that returns an object with the following properties:
+ * - name
+ * - picture
+ * - getUserCardDOM
+ */
 const photographerFactory = (data) => {
   const { name, portrait, tagline, city, country, price, id } = data;
 
   const picture = `assets/photographers/${portrait}`;
 
+  /**
+   * It creates a DOM element for a photographer card.
+   * @returns an article element.
+   */
   const getUserCardDOM = () => {
     count = count + 1;
 

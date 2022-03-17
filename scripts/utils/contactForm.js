@@ -3,6 +3,10 @@
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', (event) => validateForm(event));
 
+/**
+ * It validates the form and sends the data to the console.
+ * @param event - The event that triggered the validation.
+ */
 const validateForm = (event) => {
   const firstInput = document.getElementById('firstName');
   const lastInput = document.getElementById('lastName');
@@ -26,6 +30,14 @@ const validateForm = (event) => {
   !data.email || !data.email.match(emailRegex) ? error.email = true : null;
   !data.message || data.message.length < 2 ? error.message = true : null;
 
+  /**
+   * * If the error is present and the error label is not visible, then add the error class to the
+   * input element and make the error label visible.
+   * * If the error is not present and the error label is visible, then remove the error class from the
+   * input element and make the error label invisible
+   * @param element - The element that is being validated.
+   * @param errorName - The name of the error that you want to create.
+   */
   const createError = (element, errorName) => {
     const errorLabel = [];
     errorLabel[errorName] = document.getElementById(`${errorName}Data`);

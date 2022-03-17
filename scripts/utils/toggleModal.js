@@ -7,6 +7,10 @@ const toggleModal = () => {
 
     modal.style.display === 'block' ? modal.style.display = 'none' : modal.style.display = 'block';
     
+    /**
+     * Hide the modal when the escape key is pressed
+     * @param event - The event that triggered the modal.
+     */
     const hide = (event) => {
         if (event.key === 'Escape') {
             modal.style.display = 'none';

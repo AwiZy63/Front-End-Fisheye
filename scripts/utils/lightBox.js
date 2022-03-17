@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const lightBoxCloseButton = document.getElementById('closeLightbox');
 const lightBox = document.getElementById('lightbox');
 let handleKeyboard;
@@ -6,7 +7,6 @@ let handleKeyboard;
 /**
  * Hide the lightbox by removing the event listener and setting the display to none
  */
-// eslint-disable-next-line no-unused-vars
 const hideLightbox = () => {
   document.removeEventListener('keydown', handleKeyboard);
   lightBox.style.display = 'none';

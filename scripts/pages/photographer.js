@@ -67,6 +67,7 @@ const displayPhotographContent = async (photograph) => {
   const filter = document.getElementById('filterSelector');
   let filterValue = filter.value;
 
+  /* Sorting the medias array by likes and then it is adding the tabIndex to each media object. */
   medias.sort((a, b) => (b.likes - a.likes)).forEach(async (media) => {
     tabIndex = tabIndex + 1;
 
@@ -79,8 +80,10 @@ const displayPhotographContent = async (photograph) => {
     photographMedias.appendChild(mediaCardDOM);
   });
 
+  /* Updating the total likes of the photograph. */
   updateTotalLikes(medias, photograph.price);
 
+  /* A callback function that is called when the value of the filter changes. */
   filter.addEventListener('change', (event) => {
     tabIndex = 0;
     filterValue = event.currentTarget.value;
@@ -110,6 +113,7 @@ const displayPhotographContent = async (photograph) => {
 const updateTotalLikes = async (medias, price) => {
   let likes = 0;
 
+  /* Adding the likes of each media to the total likes of the photograph. */
   medias.map((media) => (likes = likes + media.likes));
 
   const statsLikes = document.querySelector('.photograph_stats_likes');
@@ -118,6 +122,7 @@ const updateTotalLikes = async (medias, price) => {
   statsPrice.innerText = `${price.toString()}€ / heure`;
 
   const mediasContainer = document.querySelector('.photograph_medias');
+  /* Adding the event listener to the `photograph_medias` element. */
   mediasContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('photograph_media_informations_likes_button')) {
       likes = likes + 1;
@@ -130,10 +135,14 @@ const updateTotalLikes = async (medias, price) => {
     }
   });
 
+  /* Adding an event listener to the `photograph_medias` element. */
   mediasContainer.addEventListener('keydown', (event) => {
     const keyPressed = event.key;
+    /* Checking if the key pressed is the spacebar or the enter key. If it is, then it will get the
+    tabIndex of the selected media and subtract 1 from it. Then it will display the lightbox with
+    the selected media. */
     if (keyPressed === ' ' || keyPressed === 'Enter') {
-      const selectedMedia = e.target.attributes.tabIndex.value - 1;
+      const selectedMedia = event.target.attributes.tabIndex.value - 1;
       // eslint-disable-next-line no-undef
       displayLightbox(medias, selectedMedia || 0);
     }

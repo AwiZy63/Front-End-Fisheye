@@ -23,7 +23,6 @@ const photographerFactory = (data) => {
 
     const article = document.createElement('article');
     article.setAttribute('aria-label', `Carte de ${name},.`);
-    // article.setAttribute('role', 'main');
     
     const link = document.createElement('a');
     link.setAttribute('href', `photographer.html?id=${id}`);
@@ -38,7 +37,7 @@ const photographerFactory = (data) => {
     img.setAttribute('aria-describedBy', `picture`);
 
     const h2 = document.createElement('h2');
-    h2.setAttribute('aria-label', "Le nom du photographe est,");
+    h2.setAttribute('aria-label', `Le nom du photographe est ${name},.`);
     h2.textContent = name;
 
     const locationElement = document.createElement('p');

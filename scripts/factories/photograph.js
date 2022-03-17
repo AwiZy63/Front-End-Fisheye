@@ -39,7 +39,7 @@ const photographFactory = (data) => {
 
     const photographPicture = document.createElement('img');
     photographPicture.setAttribute('src', picture);
-    photographPicture.setAttribute('alt', name);
+    photographPicture.setAttribute('alt', `Auto-portrait de ${name},.`);
     photographPicture.classList.add('photograph_profile_picture');
 
     profileHeader.appendChild(profile);
@@ -62,19 +62,22 @@ const photographFactory = (data) => {
     // Faire le DOM des medias.
     const article = document.createElement('article');
     article.classList.add('photograph_media');
-    // article.setAttribute('tabIndex', `${data.tabIndex}`);
 
     const imageLink = document.createElement('button');
     imageLink.classList.add('photograph_media_button');
+    imageLink.setAttribute('role', 'button');
+    imageLink.setAttribute('aria-label', `Visualiser le media: ${data.title}`);
     imageLink.setAttribute('tabIndex', `${data.tabIndex}`);
     
     const image = document.createElement('img');
+    image.setAttribute('role', 'img');
     image.setAttribute('alt', data.title);
     // eslint-disable-next-line no-unused-expressions
     data.image ? image.setAttribute('src', `${media}/${data.image}`) : null;
     image.classList.add('photograph_media_picture');
 
     const video = document.createElement('video');
+    video.setAttribute('role', 'img');
     // eslint-disable-next-line no-unused-expressions
     video.setAttribute('alt', data.title);
     // eslint-disable-next-line no-unused-expressions

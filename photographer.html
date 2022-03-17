@@ -16,53 +16,38 @@
   </header>
   <main id="main" class="photograph_page">
     <div class="photograph-header">
-      <button tabindex="1" class="contact_button">Contactez-moi</button>
+      <button role="button" aria-label="Contacter le photographe,." tabindex="1" class="contact_button">Contactez-moi</button>
     </div>
     <section class="photograph_works">
       <div class="filter">
-        <p class="filter-text">Trier par</p>
+        <p aria-label="Menu déroulant qui sert à trier les medias par popularité, date ou par ordre alphabétique,." class="filter-text">Trier par</p>
         <div class="filter-selector">
           <select tabindex="1" name="filter" id="filterSelector">
-            <option value="popularity">Popularité</option>
-            <option value="date">Date</option>
-            <option value="title">Title</option>
+            <option aria-label="Trier par popularité," aria-selected="Popularité," value="popularity">Popularité</option>
+            <option aria-label="Trier par date de publication," aria-selected="Date de publication," value="date">Date</option>
+            <option aria-label="Trier par ordre alphabétique," aria-selected="Ordre alphabétique," value="title">Title</option>
           </select>
         </div>
       </div>
-      <div class="photograph_medias">
-        <!-- <article class="photograph_media">
-          <a href="#">
-            <img class="photograph_media_picture" src="./assets/medias/Mimi/Animals_Rainbow.jpg" alt="Animals_Rainbow">
-          </a>
-          <div class="photograph_media_informations">
-            <p class="photograph_media_informations_title">Arc-en-ciel</p>
-            <div class="photograph_media_informations_likes">
-              <p class="photograph_media_informations_likes_counter">11</p>
-              <button class="photograph_media_informations_likes_button">&#10084;</button>
-            </div>
-          </div>
-        </article>
-         -->
-        
-      </div>
+      <div role="grid" aria-label="Liste des travaux effectués par le photographe,." class="photograph_medias"></div>
     </section>
-    <div class="photograph_stats">
-      <span class="photograph_stats_likes">
+    <div aria-label="Informations sur la réputation et les tarifs du photographe," class="photograph_stats">
+      <span aria-label="Nombre de likes du photographe,." class="photograph_stats_likes">
         0 &#10084;
       </span>
-      <span class="photograph_stats_price">
-        ...€ / jour
+      <span aria-label="Prix du photographe par heure,." class="photograph_stats_price">
+        0€ / jour
       </span>
     </div>
   </main>
-  <div id="lightbox" class="lightbox">
+  <div id="lightbox" aria-label="Carousel des différents travaux du photographe,." class="lightbox">
     <button id="leftArrow" class="lightbox-arrow" aria-label="Media précédent">❮</button>
     <div class="lightbox-content">
-      <img src="./assets/icons/close.svg" id="closeLightbox" class="close_button" alt="Bouton pour fermer la lightbox" aria-label="Fermer la lightbox"/>
+      <img src="./assets/icons/close.svg" id="closeLightbox" class="close_button" alt="Bouton pour fermer la lightbox" aria-label="picture"/>
       <div id="lightboxMediaContainer" class="lightbox-media-container">
         <img class="lightbox-content-media" src="./assets/medias/EllieRose/Architecture_Connected_Curves.jpg" alt="">
       </div>
-      <p class="lightbox-content-title" aria-label="Titre du media,">Arc-en-ciel</p>
+      <p class="lightbox-content-title" aria-label="Titre du media,">Chargement..</p>
     </div>
     <button id="rightArrow" class="lightbox-arrow" aria-label="Media suivant">❯</button>
   </div>
@@ -76,25 +61,25 @@
         <div>
           <div id="lastNameData" class="formData" data-error="Veuillez renseigner votre nom.">
             <label id="lastName-label" for="lastName">Nom</label>
-            <input tabindex="1" aria-labelledby="lastName-label" type="text" name="lastName" id="lastName" class="formData contact-input">
+            <input tabindex="1" aria-labelledby="lastName-label" aria-errormessage="Veuillez renseigner votre nom." aria-invalid="false" aria-required="true" type="text" name="lastName" id="lastName" class="formData contact-input">
           </div>
 
           <div id="firstNameData" class="formData" data-error="Veuillez renseigner votre prénom.">
             <label id="firstName-label" for="firstName">Prénom</label>
-            <input tabindex="1" aria-labelledby="firstName-label" type="text" name="firstName" id="firstName" class="formData contact-input">
+            <input tabindex="1" aria-labelledby="firstName-label" aria-errormessage="Veuillez renseigner votre prénom." aria-invalid="false" aria-required="true" type="text" name="firstName" id="firstName" class="formData contact-input">
           </div>
 
           <div id="emailData" class="formData" data-error="Veuillez renseigner un mail valide.">  
             <label id="email-label" for="email">Email</label>       
-            <input tabindex="1" aria-labelledby="email-label" type="text" name="email" id="email" class="formData contact-input">
+            <input tabindex="1" aria-labelledby="email-label" aria-errormessage="Veuillez renseigner un mail valide." aria-invalid="false" aria-required="true" type="text" name="email" id="email" class="formData contact-input">
           </div>
 
           <div id="messageData" class="formData" data-error="Veuillez renseigner votre message.">
             <label id="message-label" for="message">Message</label>
-            <textarea tabindex="1" aria-labelledby="message-label" name="message" id="message" class="contact-message"></textarea>
+            <textarea tabindex="1" aria-labelledby="message-label" aria-errormessage="Veuillez renseigner votre message." aria-invalid="false" aria-required="true" name="message" id="message" class="contact-message"></textarea>
           </div>
         </div>
-        <button tabindex="1" aria-label="Envoyer" class="contact_submit">Envoyer</button>
+        <button tabindex="1" role="button" aria-label="Envoyer" class="contact_submit">Envoyer</button>
       </form>
     </div>
   </div>

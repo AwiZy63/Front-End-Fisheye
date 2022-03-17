@@ -46,17 +46,21 @@ const validateForm = (event) => {
   const createError = (element, errorName) => {
     const errorLabel = [];
     errorLabel[errorName] = document.getElementById(`${errorName}Data`);
+    input = document.getElementById(errorName);
+
     errorLabel[errorName].removeAttribute('data-error-visible');
 
     /* Adding the error class to the input element and making the error label visible. */
     if (error[errorName] && !errorLabel[errorName].attributes['data-error-visible']) {
       element.classList.add('error-input');
       errorLabel[errorName].setAttribute('data-error-visible', 'true');
+      input.setAttribute('aria-invalid', 'true');
     }
 
     if (!error[errorName] && !errorLabel[errorName].attributes['data-error-visible']) {
       element.classList.remove('error-input');
       errorLabel[errorName].removeAttribute('data-error-visible');
+      input.setAttribute('aria-invalid', 'false');
     }
   };
 

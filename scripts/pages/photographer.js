@@ -49,6 +49,7 @@ const displayProfileData = async (photograph) => {
 
   const elementsListened = [contactButton, closeModalButton];
   elementsListened.forEach((element) => {
+    // eslint-disable-next-line
     element.addEventListener('click', toggleModal)
   });
 

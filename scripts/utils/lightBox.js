@@ -3,7 +3,6 @@ const lightBoxCloseButton = document.getElementById('closeLightbox');
 const lightBox = document.getElementById('lightbox');
 let handleKeyboard;
 
-
 /**
  * Hide the lightbox by removing the event listener and setting the display to none
  */
@@ -17,6 +16,7 @@ const hideLightbox = () => {
  * @param medias - An array of media objects.
  * @param selectedMedia - The index of the media to display.
  */
+// eslint-disable-next-line
 const displayLightbox = async (medias, selectedMedia) => {
   lightBox.style.display = 'flex';
 

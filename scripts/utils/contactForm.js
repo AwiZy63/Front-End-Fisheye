@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
 // eslint-disable-next-line no-unused-vars
 const form = document.getElementById('contactForm');
-form.addEventListener('submit', (event) => validateForm(event));
 
 /**
  * It validates the form and sends the data to the console.
@@ -26,7 +25,7 @@ const validateForm = (event) => {
     firstName: firstInput.value,
     lastName: lastInput.value,
     email: emailInput.value,
-    message: messageInput.value
+    message: messageInput.value,
   };
 
   /* Checking if the value of the input is empty or if the length of the value is less than 2. If it is
@@ -47,20 +46,19 @@ const validateForm = (event) => {
   const createError = (element, errorName) => {
     const errorLabel = [];
     errorLabel[errorName] = document.getElementById(`${errorName}Data`);
-    errorLabel[errorName].removeAttribute("data-error-visible");
+    errorLabel[errorName].removeAttribute('data-error-visible');
 
     /* Adding the error class to the input element and making the error label visible. */
-    if (error[errorName] && !errorLabel[errorName].attributes["data-error-visible"]) {
+    if (error[errorName] && !errorLabel[errorName].attributes['data-error-visible']) {
       element.classList.add('error-input');
-      errorLabel[errorName].setAttribute("data-error-visible", "true");
+      errorLabel[errorName].setAttribute('data-error-visible', 'true');
     }
 
-    if (!error[errorName] && !errorLabel[errorName].attributes["data-error-visible"]) {
+    if (!error[errorName] && !errorLabel[errorName].attributes['data-error-visible']) {
       element.classList.remove('error-input');
-      errorLabel[errorName].removeAttribute("data-error-visible");
+      errorLabel[errorName].removeAttribute('data-error-visible');
     }
   };
-
 
   /* Creating the error label for each input element. */
   createError(firstInput, 'firstName');
@@ -71,12 +69,17 @@ const validateForm = (event) => {
   /* Checking if there is any error in the form. If there is no error, then it will send the data to the
   console and close the modal. */
   if (Object.keys(error).length === 0) {
+    // eslint-disable-next-line no-console
     console.log(data);
     firstInput.value = '';
     lastInput.value = '';
     emailInput.value = '';
     messageInput.value = '';
+    // eslint-disable-next-line no-alert
     alert('formulaire envoyé');
-    closeModal();
+    // eslint-disable-next-line no-undef
+    toggleModal();
   }
-}
+};
+
+form.addEventListener('submit', (event) => validateForm(event));

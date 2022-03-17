@@ -5,6 +5,7 @@
  * @returns an object that contains the name of the photographer, the path to the profile picture, the
  * path to the media folder and the function to create the profile card.
  */
+// eslint-disable-next-line
 const photographFactory = (data) => {
   const { portrait } = data;
   const name = data.name ? data.name : data.photographerName;

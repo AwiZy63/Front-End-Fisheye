@@ -8,6 +8,7 @@ let count = 1;
  * - picture
  * - getUserCardDOM
  */
+// eslint-disable-next-line
 const photographerFactory = (data) => {
   const { name, portrait, tagline, city, country, price, id } = data;
 

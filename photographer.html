@@ -20,9 +20,9 @@
     </div>
     <section class="photograph_works">
       <div class="filter">
-        <p aria-label="Menu déroulant qui sert à trier les medias par popularité, date ou par ordre alphabétique,." class="filter-text">Trier par</p>
+        <label id="filterLabel" for="filter" aria-label="Menu déroulant qui sert à trier les medias par popularité, date ou par ordre alphabétique,." class="filter-text">Trier par</label>
         <div class="filter-selector">
-          <select tabindex="1" name="filter" id="filterSelector">
+          <select aria-labelledby="filterLabel" tabindex="1" name="filter" id="filterSelector">
             <option aria-label="Trier par popularité," aria-selected="Popularité," value="popularity">Popularité</option>
             <option aria-label="Trier par date de publication," aria-selected="Date de publication," value="date">Date</option>
             <option aria-label="Trier par ordre alphabétique," aria-selected="Ordre alphabétique," value="title">Title</option>

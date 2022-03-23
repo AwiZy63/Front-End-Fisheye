@@ -61,22 +61,22 @@
         <div>
           <div id="lastNameData" class="formData" data-error="Veuillez renseigner votre nom.">
             <label id="lastName-label" for="lastName">Nom</label>
-            <input tabindex="1" aria-labelledby="lastName-label" aria-invalid="false" aria-required="true" type="text" name="lastName" id="lastName" class="formData contact-input">
+            <input tabindex="1" aria-labelledby="lastName-label" autocomplete="family-name" aria-autocomplete="inline" role="textbox" aria-invalid="false" aria-required="true" type="text" name="lastName" id="lastName" class="formData contact-input">
           </div>
 
           <div id="firstNameData" class="formData" data-error="Veuillez renseigner votre prénom.">
             <label id="firstName-label" for="firstName">Prénom</label>
-            <input tabindex="1" aria-labelledby="firstName-label" aria-invalid="false" aria-required="true" type="text" name="firstName" id="firstName" class="formData contact-input">
+            <input tabindex="1" aria-labelledby="firstName-label" autocomplete="name" aria-autocomplete="inline" role="textbox" aria-invalid="false" aria-required="true" type="text" name="firstName" id="firstName" class="formData contact-input">
           </div>
 
           <div id="emailData" class="formData" data-error="Veuillez renseigner un mail valide.">  
             <label id="email-label" for="email">Email</label>       
-            <input tabindex="1" aria-labelledby="email-label" aria-invalid="false" aria-required="true" type="text" name="email" id="email" class="formData contact-input">
+            <input tabindex="1" aria-labelledby="email-label" autocomplete="email" aria-autocomplete="inline" role="textbox" aria-invalid="false" aria-required="true" type="text" name="email" id="email" class="formData contact-input">
           </div>
 
           <div id="messageData" class="formData" data-error="Veuillez renseigner votre message.">
             <label id="message-label" for="message">Message</label>
-            <textarea tabindex="1" aria-labelledby="message-label" aria-invalid="false" aria-required="true" name="message" id="message" class="contact-message"></textarea>
+            <textarea tabindex="1" aria-labelledby="message-label" aria-autocomplete="inline" role="textbox" aria-invalid="false" aria-required="true" name="message" id="message" class="contact-message"></textarea>
           </div>
         </div>
         <button tabindex="1" role="button" aria-label="Envoyer" class="contact_submit">Envoyer</button>
